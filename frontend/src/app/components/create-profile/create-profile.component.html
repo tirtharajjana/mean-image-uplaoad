@@ -1,1 +1,16 @@
-<p>create-profile works!</p>
+<h1>Create Profile</h1>
+<hr>
+<form [formGroup]="form" (submit)="onSubmit()">
+<div class="">
+    <input type="text" formControlName="name" placeholder="Enter name " id="">
+</div>
+<div class="">
+    <input type="file" (change)="onFileSelect($event)">
+</div>
+<div class="" *ngIf="imageData">
+    <img src="imageData" alt="form.value.name" srcset="">
+</div>
+<div class="">
+    <button type="submit">Create Profile</button>
+</div>
+</form>
