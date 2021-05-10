@@ -6,13 +6,14 @@ const express=require("express");
 const mongoose=require('mongoose');
 const cors=require('cors');
 
+const profilesRoutes=require('./routes/profiles');
+
 const app=express();
 
 const ports=process.env.PORT || 3000;
 
 mongoose.connect(
-    `mongodb+srv://${process.env.USER}:${process.env.PASSOWRD}@cluster0.mvcmf.mongodb.net/${process.env.DATABASE}`,
-    {useNewUrlParser:true,useUnifiedTopology:true}
+    "mongodb://localhost:27017/mean",{useNewUrlParser:true,useUnifiedTopology:true}
 ).then(()=>{
     app.listen(ports,console.log(`server is running on port ${ports}`));
 })
@@ -21,3 +22,7 @@ mongoose.connect(
 
 app.use(bodyParser.json());
 app.use(cors());
+
+app.use('/images',express.static(path.join('images')));
+
+app.use('/api/profilesRoutes',profilesRoutes)
