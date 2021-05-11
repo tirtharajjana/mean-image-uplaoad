@@ -1,6 +1,6 @@
 const express=require("express");
 
-//controller
+const profilesController=require('../controllers/profiles');
 
 //storage
 const router =express.Router();
