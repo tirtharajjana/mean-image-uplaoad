@@ -1,12 +1,13 @@
-const express=require("express");
+const express = require("express");
 
-const profilesController=require('../controllers/profiles');
+const profilesController = require('../controllers/profiles');
 
-//storage
-const router =express.Router();
+const storage = require('../helpers/storage');
 
-// router.get('/',)
+const router = express.Router();
 
-router.post('/',storage,profilesController.postProfile);
+router.get('/', profilesController.getProfiles);
 
-module.exports=router;
+router.post('/', storage, profilesController.postProfile);
+
+module.exports = router;

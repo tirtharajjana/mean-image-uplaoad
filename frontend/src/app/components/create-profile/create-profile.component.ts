@@ -31,7 +31,7 @@ export class CreateProfileComponent implements OnInit {
     if (file && allowedMimeTypes.includes(file.type)) {
       const reader = new FileReader();
       reader.onload = () => {
-        this.imageData=reader.result as string;
+        this.imageData = reader.result as string;
 
       }
       reader.readAsDataURL(file);
@@ -40,8 +40,8 @@ export class CreateProfileComponent implements OnInit {
 
   onSubmit() {
     console.log("Submit Profile");
-     this.form.reset();
-     this.imageData=null;
+    this.form.reset();
+    this.imageData = null;
   }
 
 }

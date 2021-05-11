@@ -5,4 +5,4 @@ const profileSchema = mongoose.Schema({
     imagePath: { type: String, required: true }
 })
 
-module.exports=mongoose.model('Profile',profileSchema); 
+module.exports = mongoose.model('Profile', profileSchema);
