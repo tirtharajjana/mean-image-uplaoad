@@ -10,6 +10,18 @@ const profilesRoutes = require('./routes/profiles');
 
 const app = express();
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader(
+        'Access-Control-Allow-Methods',
+        'GET, POST, PUT, DELETE, OPTIONS'
+    );
+    res.setHeader(
+        'Access-Control-Allow-Headers',
+        'Content-Type, Accept, X-Custom-Header, Authorization'
+    ); next();
+});
+
 const ports = process.env.PORT || 3000;
 
 mongoose.connect(
@@ -25,4 +37,4 @@ app.use(cors());
 
 app.use('/images', express.static(path.join('images')));
 
-app.use('/api/profilesRoutes', profilesRoutes)
+app.use('/api/profiles', profilesRoutes);
